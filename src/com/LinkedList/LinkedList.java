@@ -120,6 +120,22 @@ public class LinkedList {
         }
     }
 
+    public void deletePosition(int position) {
+        if(position == 1){
+            head = head.next;
+        } else{
+            ListNode previous = head;
+            int count = 1;
+            while (count < position -1){
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            //delete the node from the list
+            previous.next = current.next;
+        }
+    }
+
     public static  void main (String [] args){
         //ensure the l1 list is of our linked list main class
         LinkedList l1 = new LinkedList();
@@ -133,6 +149,7 @@ public class LinkedList {
         ListNode sixth = new ListNode(13);
         ListNode seventh = new ListNode(17);
         ListNode eighth = new ListNode(22);
+        ListNode nineth = new ListNode( 24);
         //connect the pointers
         l1.head.next = second;
         second.next = third;
@@ -141,6 +158,8 @@ public class LinkedList {
         fifth.next = sixth;
         sixth.next = seventh;
         seventh.next = eighth;
+        eighth.next = nineth;
+
 
         //get linked list length
         //l1.linkedListLength();
@@ -154,6 +173,8 @@ public class LinkedList {
         l1.deleteFirst();
         //remove the last element
         l1.deleteLast();
+        //insert at a specific position
+        l1.deletePosition(10);
         //print linked list
         l1.display();
 
