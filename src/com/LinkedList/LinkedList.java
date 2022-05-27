@@ -135,6 +135,18 @@ public class LinkedList {
             previous.next = current.next;
         }
     }
+    //search if a specific value is in one of the nodes of a linked list
+    public boolean searchValue(ListNode head,int targetData){
+        ListNode current = head;
+        //loop until we find it
+        while(current !=null){
+            if(current.data == targetData){
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
 
     public static  void main (String [] args){
         //ensure the l1 list is of our linked list main class
@@ -177,6 +189,11 @@ public class LinkedList {
         l1.deletePosition(10);
         //print linked list
         l1.display();
-
+        //search if a specific value is in one of the nodes in the linked list
+        if(l1.searchValue(head, 25)){
+            System.out.println("Key found");
+        } else {
+            System.out.println("key not found");
+        }
     }
 }
