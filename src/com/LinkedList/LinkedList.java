@@ -39,6 +39,15 @@ public class LinkedList {
         }
         System.out.println(count);
     }
+    //insert new node at the head of the list
+    public void insertFirst(int newData){
+        //new node with data but points to null
+        ListNode newNode = new ListNode(newData);
+        //insert it behind the head by making the new node's pointer point to the old head
+        newNode.next = head;
+        //make the  head the new node;
+        head = newNode;
+    }
 
     public static  void main (String [] args){
         //ensure the l1 list is of our linked list main class
@@ -61,10 +70,14 @@ public class LinkedList {
         fifth.next = sixth;
         sixth.next = seventh;
         seventh.next = eighth;
+
+        //get linked list length
+        //l1.linkedListLength();
+        //insert a node at the start of the linked list
+        l1.insertFirst(0);
+        l1.insertFirst(1);
         //print linked list
         l1.display();
-        //get linked list length
-        l1.linkedListLength();
 
     }
 }
