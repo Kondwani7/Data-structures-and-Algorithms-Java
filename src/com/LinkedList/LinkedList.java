@@ -1,8 +1,5 @@
 package com.LinkedList;
 
-import com.company.Main;
-
-import java.util.List;
 
 //singly linked list
 public class LinkedList {
@@ -55,7 +52,6 @@ public class LinkedList {
         //check of the list only has a head
         if(current == null){
             current.next = newNode;
-            return;
         }else{
             //while our pointer is not null
             while(null != current.next){
@@ -65,7 +61,35 @@ public class LinkedList {
             //let the pointer now point towards our new node
             current.next = newNode;
         }
-        //else if not empty
+    }
+    //insert at the target position
+    public void insertPosition(int position, int newData){
+        ListNode newNode = new ListNode(newData);
+        //if the list is null
+        if(position == 1) {
+            //the new node's pointer should now point our old head
+            newNode.next = head;
+            //the new node is the new head
+            head = newNode;
+        } else {
+            //node at the end of linked list
+            ListNode previous = head;
+            int count = 1;
+            //while the count traverses through to the end of the linked list
+            while(count < position -1 ){
+                //set a pointer at the end of our linked list
+                previous = previous.next;
+                count++;
+            }
+            // |previous|next| --> |current|next| --> ....
+            ListNode current = previous.next;
+            // |previous|next| --> |newNode|next| (not linked) |current|next| --> ...
+            previous.next =  newNode;
+            // |previous|next| --> |newNode|next| --> |current|next| ---> ...
+            newNode.next = current;
+
+        }
+
     }
 
     public static  void main (String [] args){
@@ -94,9 +118,9 @@ public class LinkedList {
         //l1.linkedListLength();
         //insert a node at the start of the linked list
         l1.insertFirst(0);
-        l1.insertFirst(1);
         //insert a node at the end of a linked list
         l1.insertEnd(28);
+        l1.insertPosition(5, 7);
         //print linked list
         l1.display();
 
