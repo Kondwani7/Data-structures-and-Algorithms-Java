@@ -11,9 +11,9 @@ This repository contains a breakdown of the various data structures and algorith
 In this [section](https://github.com/Kondwani7/Data-structures-and-Algorithms-Java/blob/main/src/com/LinkedList/LinkedList.java), we covered these concepts such as:
 * printing a singly linked list
 * Getting the length of a singly linked list
-* Insert a node at the beginning of a singly linked list
-* Insert a node at the end of a singly linked list
+* Insert a node at the beginning and end of a singly linked list
 * insert a node at given position of a linked list
+* delete a node at the beginning end of a singly linked list
 ### DoublyLinkedLists
 In this [section](), we cover concepts such as:
 * first

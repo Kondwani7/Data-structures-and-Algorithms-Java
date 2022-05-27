@@ -89,7 +89,35 @@ public class LinkedList {
             newNode.next = current;
 
         }
-
+    }
+    //delete the first element in the linked list
+    public void deleteFirst(){
+        if(head ==null){
+            head = null;
+        } else{
+            //|temp|next|  |head|next|-->
+            ListNode temp = head;
+            //|temp|next| --> |head|next| -->
+            head = head.next;
+            //|temp|next| -> null |head|next| --> ...
+            temp.next = null;
+        }
+    }
+    //delete the last element in the linked list
+    public void deleteLast(){
+        if (head == null || head.next == null) {
+            head = null;
+        } else{
+           ListNode current = head;
+           ListNode previous = null;
+           while(current.next != null){
+               //update previous as the data
+               previous = current;
+               //and current as the next pointer of the previous node
+               current =  current.next;
+           }
+           previous.next = null;
+        }
     }
 
     public static  void main (String [] args){
@@ -120,7 +148,12 @@ public class LinkedList {
         l1.insertFirst(0);
         //insert a node at the end of a linked list
         l1.insertEnd(28);
+        l1.insertEnd(35);
         l1.insertPosition(5, 7);
+        //remove the first element
+        l1.deleteFirst();
+        //remove the last element
+        l1.deleteLast();
         //print linked list
         l1.display();
 
