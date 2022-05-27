@@ -29,6 +29,17 @@ public class LinkedList {
         }
         System.out.println("null");
     }
+    //get length of a linked list
+    public void linkedListLength(){
+        int count = 0;
+        ListNode current = head;
+        while(current != null){
+            count++;
+            current = current.next;
+        }
+        System.out.println(count);
+    }
+
     public static  void main (String [] args){
         //ensure the l1 list is of our linked list main class
         LinkedList l1 = new LinkedList();
@@ -39,12 +50,21 @@ public class LinkedList {
         ListNode third = new ListNode(6);
         ListNode fourth = new ListNode(8);
         ListNode fifth = new ListNode(10);
+        ListNode sixth = new ListNode(13);
+        ListNode seventh = new ListNode(17);
+        ListNode eighth = new ListNode(22);
         //connect the pointers
         l1.head.next = second;
         second.next = third;
         third.next = fourth;
         fourth.next = fifth;
+        fifth.next = sixth;
+        sixth.next = seventh;
+        seventh.next = eighth;
+        //print linked list
         l1.display();
+        //get linked list length
+        l1.linkedListLength();
 
     }
 }
