@@ -1,6 +1,7 @@
 package com.LinkedList;
 
 
+
 //singly linked list
 public class LinkedList {
     //declare a head
@@ -15,7 +16,7 @@ public class LinkedList {
         }
     }
     //print the linked  list
-    public void display(){
+    public void display(ListNode head){
         //assigning a current node as the head of our list
         ListNode current = head;
         while(current != null) {
@@ -147,6 +148,32 @@ public class LinkedList {
         }
         return false;
     }
+    //reverse a linked list
+    public ListNode reverseLinkedList(ListNode head){
+        ListNode current = head;
+        ListNode previous = null;
+        ListNode nextNode = null;
+        //traverse through the list to then end
+        if (head == null){
+            return head;
+        } else {
+            while (current!= null){
+                //|current|next| --> |nextNode|next|
+                nextNode = current.next;
+                // |current|next| --> null
+                current.next = previous;
+                //|previous|next| - the first node
+                previous = current;
+                // |current|next| - the next node
+                current = nextNode;
+                //the final linked list
+                /// null <-- |previous|next| <-- |current|next| <-- |nextNode|next|
+            }
+            System.out.println(previous);
+            return previous;
+        }
+
+    }
 
     public static  void main (String [] args){
         //ensure the l1 list is of our linked list main class
@@ -163,14 +190,14 @@ public class LinkedList {
         ListNode eighth = new ListNode(22);
         ListNode nineth = new ListNode( 24);
         //connect the pointers
-        l1.head.next = second;
-        second.next = third;
-        third.next = fourth;
-        fourth.next = fifth;
-        fifth.next = sixth;
-        sixth.next = seventh;
-        seventh.next = eighth;
-        eighth.next = nineth;
+        l1.head.next = second; //|l1|next| --> |second|next|
+        second.next = third; //|l1|next| --> |second|next| --> |third|next|
+        third.next = fourth; //|l1|next| --> |second|next| --> |third|next|
+        fourth.next = fifth; //|l1|next| --> |second|next| --> |third|next| --> |fourth|next|
+        fifth.next = sixth; //|l1|next| --> |second|next| --> |third|next| --> |fourth|next| --> |fifth|next|
+        sixth.next = seventh; //|l1|next| --> |second|next| --> |third|next| --> |fourth|next| --> |fifth|next| --> |sixth| next|
+        seventh.next = eighth;//|l1|next| --> |second|next| --> |third|next| --> |fourth|next| --> |fifth|next| --> |sixth| next| --> |seventh|next|
+        eighth.next = nineth; //|l1|next| --> |second|next| --> |third|next| --> |fourth|next| --> |fifth|next| --> |sixth| next| --> |seventh|next| --> |eight|next|--> null
 
 
         //get linked list length
@@ -188,12 +215,18 @@ public class LinkedList {
         //insert at a specific position
         l1.deletePosition(10);
         //print linked list
-        l1.display();
+        //l1.display();
         //search if a specific value is in one of the nodes in the linked list
+        /*
         if(l1.searchValue(head, 25)){
             System.out.println("Key found");
         } else {
             System.out.println("key not found");
         }
+        */
+
+        l1.display(head);
+        //reverse a linked list
+        l1.reverseLinkedList(head);
     }
 }
