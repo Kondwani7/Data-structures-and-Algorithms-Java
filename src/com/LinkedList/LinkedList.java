@@ -48,6 +48,25 @@ public class LinkedList {
         //make the  head the new node;
         head = newNode;
     }
+    //insert at the end of a linked list
+    public void insertEnd(int newData){
+        ListNode newNode = new ListNode(newData);
+        ListNode current = head;
+        //check of the list only has a head
+        if(current == null){
+            current.next = newNode;
+            return;
+        }else{
+            //while our pointer is not null
+            while(null != current.next){
+                //traverse till the end of the node
+                current = current.next;
+            }
+            //let the pointer now point towards our new node
+            current.next = newNode;
+        }
+        //else if not empty
+    }
 
     public static  void main (String [] args){
         //ensure the l1 list is of our linked list main class
@@ -76,6 +95,8 @@ public class LinkedList {
         //insert a node at the start of the linked list
         l1.insertFirst(0);
         l1.insertFirst(1);
+        //insert a node at the end of a linked list
+        l1.insertEnd(28);
         //print linked list
         l1.display();
 

@@ -12,6 +12,7 @@ In this [section](https://github.com/Kondwani7/Data-structures-and-Algorithms-Ja
 * printing a singly linked list
 * Getting the length of a singly linked list
 * Insert a node at the beginning of a singly linked list
+* Insert a node at the end of a singly linked list
 ### DoublyLinkedLists
 In this [section](), we cover concepts such as:
 * first
