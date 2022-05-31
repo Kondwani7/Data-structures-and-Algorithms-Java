@@ -19,6 +19,7 @@ In this [section](https://github.com/Kondwani7/Data-structures-and-Algorithms-Ja
 * Reverse a linked list
 * Find the middle node in a linked list
 * fnd the nth node from the end of the linked list
+* Remove duplicates from a sorted linked list
 ### DoublyLinkedLists
 In this [section](), we cover concepts such as:
 * first

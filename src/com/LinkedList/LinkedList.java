@@ -217,6 +217,23 @@ public class LinkedList {
             return mainPtr;
         }
     }
+    //remove duplicates from a sorted linked list
+    public void removeDuplicates(){
+        ListNode current = head;
+        if(head == null){
+            return ;
+        }
+
+        while(current != null && current.next != null){
+            //if a duplicate, replace the next with its next, in essence delete the duplicate node
+            if(current.data == current.next.data){
+                current.next = current.next.next;
+            } else{
+                //if not the case, continue traversing through the linked list
+                current = current.next;
+            }
+        }
+    }
 
     public static  void main (String [] args){
         //ensure the l1 list is of our linked list main class
@@ -239,6 +256,9 @@ public class LinkedList {
         ListNode fourteen = new ListNode(45);
         ListNode fifthteen  = new ListNode(46);
         ListNode sixteen = new ListNode(46);
+        ListNode seventeen = new ListNode(48);
+        ListNode eighteen = new ListNode(49);
+
 
 
         //connect the pointers
@@ -252,6 +272,15 @@ public class LinkedList {
         eighth.next = nineth; //|l1|next| --> |second|next| --> |third|next| --> |fourth|next| --> |fifth|next| --> |sixth| next| --> |seventh|next| --> |eight|next|--> null
         nineth.next = ten;
         ten.next = eleven;
+        eleven.next = twelve;
+        twelve.next = thirteen;
+        thirteen.next = fourteen;
+        fourteen.next = fifthteen;
+        fifthteen.next = sixteen;
+        sixteen.next = seventeen;
+        seventeen.next = eighteen;
+
+
         //get linked list length
         //l1.linkedListLength();
         //insert a node at the start of the linked list
@@ -277,18 +306,19 @@ public class LinkedList {
         }
         */
 
-        l1.display(head);
+
         //reverse a linked list
         //ListNode reversedList =  l1.reverseLinkedList(head);
         //System.out.println(reversedList);
+        //remove duplicates
+        l1.removeDuplicates();
+        l1.display(head);
         //find middle node
-        //add a new node at the end
-
         ListNode middleNode = l1.getMiddleNode(head);
-        System.out.println(middleNode.data);
+        System.out.println("The middle node of the linked list: " + middleNode.data);
         //return the nth node in the list
-        ListNode targetNode = l1.getNthNode(2);
-        System.out.println(targetNode.data);
+        ListNode targetNode = l1.getNthNode(3);
+        System.out.println("The nth node from the end of the linked list: " + targetNode.data);
 
     }
 }
