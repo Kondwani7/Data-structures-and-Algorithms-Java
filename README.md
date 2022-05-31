@@ -18,6 +18,7 @@ In this [section](https://github.com/Kondwani7/Data-structures-and-Algorithms-Ja
 * search for a specific value of a node in a linked list
 * Reverse a linked list
 * Find the middle node in a linked list
+* fnd the nth node from the end of the linked list
 ### DoublyLinkedLists
 In this [section](), we cover concepts such as:
 * first

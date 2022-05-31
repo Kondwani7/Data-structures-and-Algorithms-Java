@@ -188,6 +188,35 @@ public class LinkedList {
             return slowPtr;
         }
     }
+    //find the nth node from the end of the linked list
+    public ListNode getNthNode(int n){
+        ListNode mainPtr = head;
+        ListNode refPtr = head;
+        int count = 0;
+
+        if(n <0){
+            throw new IllegalArgumentException("invalid value: n= " + n);
+        }
+
+        if(head == null){
+            return head;
+        } else {
+            //first traverse to the list till we get to the target n value on the node
+            while(count < n){
+                if(refPtr == null){
+                    throw  new IllegalArgumentException(n + " is greater than the number of nodes in the list");
+                }
+                refPtr = refPtr.next;
+                count++;
+            }
+            //used to ensure the main pointer becomes our references pointer
+            while (refPtr !=null){
+                refPtr = refPtr.next;
+                mainPtr = mainPtr.next;
+            }
+            return mainPtr;
+        }
+    }
 
     public static  void main (String [] args){
         //ensure the l1 list is of our linked list main class
@@ -205,6 +234,12 @@ public class LinkedList {
         ListNode nineth = new ListNode( 24);
         ListNode ten = new ListNode(35);
         ListNode eleven = new ListNode(43);
+        ListNode twelve = new ListNode(44);
+        ListNode thirteen = new ListNode(44);
+        ListNode fourteen = new ListNode(45);
+        ListNode fifthteen  = new ListNode(46);
+        ListNode sixteen = new ListNode(46);
+
 
         //connect the pointers
         l1.head.next = second; //|l1|next| --> |second|next|
@@ -247,10 +282,13 @@ public class LinkedList {
         //ListNode reversedList =  l1.reverseLinkedList(head);
         //System.out.println(reversedList);
         //find middle node
-        //add a new node at the endl
+        //add a new node at the end
 
         ListNode middleNode = l1.getMiddleNode(head);
         System.out.println(middleNode.data);
+        //return the nth node in the list
+        ListNode targetNode = l1.getNthNode(2);
+        System.out.println(targetNode.data);
 
     }
 }
