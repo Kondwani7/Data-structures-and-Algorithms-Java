@@ -1,7 +1,6 @@
 package com.LinkedList;
 
 
-
 //singly linked list
 public class LinkedList {
     //declare a head
@@ -174,6 +173,21 @@ public class LinkedList {
         }
 
     }
+    //find the middle node in a linked list
+    public ListNode getMiddleNode(ListNode head){
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+        if(head == null){
+            return head;
+        } else{
+            while(fastPtr !=null && fastPtr.next !=null ){
+                slowPtr =slowPtr.next;
+                //moving twice as fast as the slow pointer
+                fastPtr = fastPtr.next.next;
+            }
+            return slowPtr;
+        }
+    }
 
     public static  void main (String [] args){
         //ensure the l1 list is of our linked list main class
@@ -189,6 +203,9 @@ public class LinkedList {
         ListNode seventh = new ListNode(17);
         ListNode eighth = new ListNode(22);
         ListNode nineth = new ListNode( 24);
+        ListNode ten = new ListNode(35);
+        ListNode eleven = new ListNode(43);
+
         //connect the pointers
         l1.head.next = second; //|l1|next| --> |second|next|
         second.next = third; //|l1|next| --> |second|next| --> |third|next|
@@ -198,8 +215,8 @@ public class LinkedList {
         sixth.next = seventh; //|l1|next| --> |second|next| --> |third|next| --> |fourth|next| --> |fifth|next| --> |sixth| next|
         seventh.next = eighth;//|l1|next| --> |second|next| --> |third|next| --> |fourth|next| --> |fifth|next| --> |sixth| next| --> |seventh|next|
         eighth.next = nineth; //|l1|next| --> |second|next| --> |third|next| --> |fourth|next| --> |fifth|next| --> |sixth| next| --> |seventh|next| --> |eight|next|--> null
-
-
+        nineth.next = ten;
+        ten.next = eleven;
         //get linked list length
         //l1.linkedListLength();
         //insert a node at the start of the linked list
@@ -227,6 +244,13 @@ public class LinkedList {
 
         l1.display(head);
         //reverse a linked list
-        l1.reverseLinkedList(head);
+        //ListNode reversedList =  l1.reverseLinkedList(head);
+        //System.out.println(reversedList);
+        //find middle node
+        //add a new node at the endl
+
+        ListNode middleNode = l1.getMiddleNode(head);
+        System.out.println(middleNode.data);
+
     }
 }

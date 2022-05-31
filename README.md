@@ -17,6 +17,7 @@ In this [section](https://github.com/Kondwani7/Data-structures-and-Algorithms-Ja
 * delete a node at a given position of a linked list
 * search for a specific value of a node in a linked list
 * Reverse a linked list
+* Find the middle node in a linked list
 ### DoublyLinkedLists
 In this [section](), we cover concepts such as:
 * first
